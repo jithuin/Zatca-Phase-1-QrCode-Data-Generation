@@ -70,10 +70,10 @@ then we can do the following step
       lst.add(new Tlv(tag: 5, key: "VatTotal", value: "150"));
     
       lst.forEach((element) {
-        bytesBuilder.addByte(element.tag);
-        List<int> sellerNameBytes = utf8.encode(element.value);
-        bytesBuilder.addByte(sellerNameBytes.length);
-        bytesBuilder.add(sellerNameBytes);
+       	bytesBuilder.addByte(element.tag);
+    	List<int> valueBytes = utf8.encode(element.value);
+    	bytesBuilder.addByte(valueBytes.length);
+    	bytesBuilder.add(valueBytes);
       });
     
       Uint8List qrCodeAsBytes = bytesBuilder.toBytes();
