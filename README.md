@@ -3,7 +3,7 @@ ZATCA E-invoicing Phase 1 QrCode data generation Samples with various programmin
 
 # Sample 1 C#.Net
 
-first we need to create an extension class for memory streem 
+first we need to create an extension class for memory streem (optional step for simplify code)
 
 
     public static class MemoryStreamExtensions
