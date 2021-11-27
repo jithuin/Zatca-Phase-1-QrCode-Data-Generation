@@ -52,6 +52,48 @@ then we can do the following step
     // we can use x as qr data
     // x = AQ5TYWxhaCBIb3NwaXRhbAIUMzEwMTIyMzkzNTAwMDAzMTExMjMDCjIwMjMtMDEtMDEEBzExNTAuMDAFAzE1MA==
     
+
+# Dart 
+
+import 'dart:typed_data';
+import 'dart:convert';
+
+void main() {
+  BytesBuilder bytesBuilder = BytesBuilder();
+
+  List<Tlv> lst = [];
+  lst.add(new Tlv(tag: 1, key: "Seller", value: "Salah Hospital"));
+  lst.add(new Tlv(tag: 2, key: "VatNumber", value: "31012239350000311123"));
+  lst.add(new Tlv(tag: 3, key: "Timestamp", value: "2023-01-01"));
+  lst.add(new Tlv(tag: 4, key: "InvoiceTotal", value: "1150.00"));
+  lst.add(new Tlv(tag: 5, key: "VatTotal", value: "150"));
+
+  lst.forEach((element) {
+    bytesBuilder.addByte(element.tag);
+    List<int> sellerNameBytes = utf8.encode(element.value);
+    bytesBuilder.addByte(sellerNameBytes.length);
+    bytesBuilder.add(sellerNameBytes);
+  });
+
+  Uint8List qrCodeAsBytes = bytesBuilder.toBytes();
+  final Base64Encoder b64Encoder = Base64Encoder();
+  print(b64Encoder.convert(qrCodeAsBytes));
+}
+
+class Tlv {
+  int tag;
+  String key;
+  String value;
+
+  Tlv({
+    required this.tag,
+    required this.key,
+    required this.value,
+  });
+}
+
+	
+
 # You can Test it with zatca sdk by the following command.
 
 fatoorah.bat validateqr -qr AQ5TYWxhaCBIb3NwaXRhbAIUMzEwMTIyMzkzNTAwMDAzMTExMjMDCjIwMjMtMDEtMDEEBzExNTAuMDAFAzE1MA==
