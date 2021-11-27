@@ -37,6 +37,8 @@ then we can do the following step
         stream.Append((byte)Convert.ToInt32(utf16Bytes.Length));
         stream.Append(utf16Bytes);
         }
-    byte[] data = stream.ToArray();  // g
+    byte[] data = stream.ToArray();  
+    // convert into base 64 string
     var x = Convert.ToBase64String(data);
+    // we can use x as qr data
     
