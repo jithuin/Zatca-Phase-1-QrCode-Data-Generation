@@ -25,11 +25,11 @@ then we can do the following step
     MemoryStream stream = new MemoryStream();
 	
     List<Tuple<int,string,string>> listTuple = new List<Tuple<int, string, string>>();
-    listTuple.Add(new Tuple<int, string, string>(1, "sellerName", "Salah Hospital"));
-    listTuple.Add(new Tuple<int, string, string>(2, "vatRegistrationNumber", "31012239350000311123"));
-    listTuple.Add(new Tuple<int, string, string>(3, "timeStamp", "2023-01-01"));
-    listTuple.Add(new Tuple<int, string, string>(4, "invoiceTotal", "200.00"));
-    listTuple.Add(new Tuple<int, string, string>(5, "vatTotal", "-125.00"));
+    listTuple.Add(new Tuple<int, string, string>(1, "Seller", "Salah Hospital"));
+    listTuple.Add(new Tuple<int, string, string>(2, "VatNumber", "31012239350000311123"));
+    listTuple.Add(new Tuple<int, string, string>(3, "TimeStamp", "2023-01-01"));
+    listTuple.Add(new Tuple<int, string, string>(4, "InvoiceTotal", "150.00"));
+    listTuple.Add(new Tuple<int, string, string>(5, "VatTotal", "1150"));
     foreach ( Tuple<int, string, string> msg in listTuple)
         {
         stream.Append((byte)msg.Item1);
