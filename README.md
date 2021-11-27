@@ -1,7 +1,7 @@
 # Zatca Phase 1 QrCode Data Generation
 ZATCA E-invoicing Phase 1 QrCode data generation Samples with various programming languages 
 
-#Sample 1 C#.Net
+# Sample 1 C#.Net
 
 first we need to create an extension class for memory streem 
 
