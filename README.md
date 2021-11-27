@@ -24,6 +24,7 @@ then we can do the following step
 
     MemoryStream stream = new MemoryStream();
 	
+    // Tag Length value Tuples
     List<Tuple<int,string,string>> listTuple = new List<Tuple<int, string, string>>();
     listTuple.Add(new Tuple<int, string, string>(1, "Seller", "Salah Hospital"));
     listTuple.Add(new Tuple<int, string, string>(2, "VatNumber", "31012239350000311123"));
@@ -32,10 +33,18 @@ then we can do the following step
     listTuple.Add(new Tuple<int, string, string>(5, "VatTotal", "150"));
     foreach ( Tuple<int, string, string> msg in listTuple)
         {
+	// Tag into byte
         stream.Append((byte)msg.Item1);
+	
+	// convert value into utf8 byte array
         byte[] utf16Bytes = utf8.GetBytes(msg.Item3);
+	
+	// get length of the value byte array and convert it into byte
         stream.Append((byte)Convert.ToInt32(utf16Bytes.Length));
+	
+	// append value utf8 byte array into stream
         stream.Append(utf16Bytes);
+	
         }
     byte[] data = stream.ToArray();  
     // convert into base 64 string
