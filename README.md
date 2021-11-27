@@ -41,4 +41,10 @@ then we can do the following step
     // convert into base 64 string
     var x = Convert.ToBase64String(data);
     // we can use x as qr data
+    // x = AQ5TYWxhaCBIb3NwaXRhbAIUMzEwMTIyMzkzNTAwMDAzMTExMjMDCjIwMjMtMDEtMDEEBzExNTAuMDAFAzE1MA==
     
+# You can Test it with zatca sdk with the following command.
+
+fatoorah.bat validateqr -qr AQ5TYWxhaCBIb3NwaXRhbAIUMzEwMTIyMzkzNTAwMDAzMTExMjMDCjIwMjMtMDEtMDEEBzExNTAuMDAFAzE1MA==
+
+
